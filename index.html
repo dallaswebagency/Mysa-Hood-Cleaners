@@ -231,8 +231,11 @@ nav.primary a:hover::after,nav.primary a.on::after{width:100%}
 .reach dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
 .reach dd{font-size:1.1rem;color:#fff;font-weight:500}
 .reach dd a:hover{color:var(--red)}
-.map{flex:1;min-height:260px;filter:grayscale(1) contrast(1.05)}
-.map iframe{width:100%;height:100%;border:0;display:block;min-height:260px}
+.map{flex:1;min-height:260px;position:relative;display:block;overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .6s}
+.map:hover svg{transform:scale(1.04)}
+.map-cta{position:absolute;left:3rem;bottom:2rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;background:var(--paper);color:var(--char);padding:.6rem .9rem}
+@media(max-width:640px){.map-cta{left:1.4rem;bottom:1.4rem}}
 
 /* footer */
 footer{background:var(--soot);color:#bbb;padding:5rem 0 0;font-size:.93rem}
@@ -500,7 +503,7 @@ footer a:hover{color:var(--sky)}
 
       <div class="panels">
         <div class="panel on">
-          <div class="ph"><img src="images/flow-hood-cleaning.jpg" onerror="this.onerror=null;this.src='images/commercial-kitchen-line.jpg'" alt="Commercial kitchen exhaust hood line"></div>
+          <div class="ph"><img src="images/flow-hood-cleaning.jpg" alt="Commercial kitchen exhaust hood line"></div>
           <div class="pc">
             <p>Keeping your exhaust system at 100% code compliance, from cleaning to the parts that make cleaning and inspection possible.</p>
             <ul class="checks">
@@ -528,7 +531,7 @@ footer a:hover{color:var(--sky)}
           </div>
         </div>
         <div class="panel">
-          <div class="ph"><img src="images/flow-mechanical-rooftop.jpg" onerror="this.onerror=null;this.src='images/commercial-kitchen-line.jpg'" alt="Mechanical service on a rooftop unit"></div>
+          <div class="ph"><img src="images/flow-mechanical-rooftop.jpg" alt="Mechanical service on a rooftop unit"></div>
           <div class="pc">
             <span class="partner">In association with Daystar Mechanical</span>
             <p>Services and construction for the rest of your kitchen, so one call covers it all.</p>
@@ -591,7 +594,7 @@ footer a:hover{color:var(--sky)}
   <div class="wrap">
     <div class="ded-grid">
       <div class="ded-left rv">
-        <img src="images/flow-hood-plenum.jpg" onerror="this.onerror=null;this.src='images/kitchen-hoods-portrait.jpg'" alt="Row of clean commercial exhaust hoods">
+        <img src="images/flow-hood-plenum.jpg" alt="Row of clean commercial exhaust hoods">
         <div class="quote">
           <svg viewBox="0 0 24 24" fill="#fff"><path d="M9.6 6C5.8 7.4 4 10.2 4 13.8V18h6v-6H7c0-2.4 1.1-3.9 3.4-4.6zm10 0c-3.8 1.4-5.6 4.2-5.6 7.8V18h6v-6h-3c0-2.4 1.1-3.9 3.4-4.6z"/></svg>
           <p>We understand that mistakes can't always be avoided, but they can always be resolved.</p>
@@ -627,7 +630,7 @@ footer a:hover{color:var(--sky)}
 
     <div class="files">
       <div class="file rv" data-tab="FILE 01">
-        <div class="vf"><span class="rec">JOB PHOTO</span><img src="images/flow-job-photo.jpg" onerror="this.onerror=null;this.src='images/kitchen-exhaust-hoods.jpg'" alt="Documented exhaust hood after cleaning" style="object-position:70% 40%"></div>
+        <div class="vf"><span class="rec">JOB PHOTO</span><img src="images/flow-job-photo.jpg" alt="Documented exhaust hood after cleaning" style="object-position:70% 40%"></div>
         <div class="fb">
           <h3 class="h-cond">Photographs</h3>
           <p>We always document every job with photographs, to protect you and to give you proof for your records.</p>
@@ -676,7 +679,21 @@ footer a:hover{color:var(--sky)}
             <div><dt>Phone</dt><dd><a href="tel:+15876646972">+1 587-664-6972</a></dd></div>
           </dl>
         </div>
-        <div class="map"><iframe title="Calgary, Alberta map" loading="lazy" src="https://maps.google.com/maps?q=Calgary%2C%20AB&t=m&z=10&output=embed&iwloc=near"></iframe></div>
+        <a class="map" href="https://www.google.com/maps/place/Calgary,+AB" target="_blank" rel="noopener" aria-label="Open Calgary, Alberta in Google Maps">
+          <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="260" fill="#232323"/>
+            <g stroke="#333" stroke-width="1">
+              <path d="M0 40h400M0 90h400M0 140h400M0 190h400M0 240h400M40 0v260M110 0v260M180 0v260M250 0v260M320 0v260"/>
+            </g>
+            <path d="M0 175 C80 150 120 205 200 170 S330 120 400 150" stroke="#2f5d74" stroke-width="10" fill="none"/>
+            <path d="M-10 60 L410 210" stroke="#3d3d3d" stroke-width="6"/>
+            <path d="M150 -10 L230 270" stroke="#3d3d3d" stroke-width="6"/>
+            <circle cx="196" cy="118" r="34" fill="#d0473c" opacity=".15"/>
+            <path d="M196 92c-11 0-19 8-19 19 0 14 19 33 19 33s19-19 19-33c0-11-8-19-19-19z" fill="#d0473c"/>
+            <circle cx="196" cy="111" r="6.5" fill="#fff"/>
+          </svg>
+          <span class="map-cta">Calgary, Alberta &middot; Open in Google Maps &rarr;</span>
+        </a>
       </div>
     </div>
   </div>
